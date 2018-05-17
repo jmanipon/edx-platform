@@ -53,6 +53,9 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ###################################### CELERY  ################################
 
+# Auto discover tasks fails to detect contentstore tasks
+CELERY_IMPORTS = ('cms.djangoapps.contentstore.tasks')
+
 # Don't use a connection pool, since connections are dropped by ELB.
 BROKER_POOL_LIMIT = 0
 BROKER_CONNECTION_TIMEOUT = 1
