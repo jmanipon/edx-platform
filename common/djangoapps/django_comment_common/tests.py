@@ -153,6 +153,7 @@ class CoursePublishHandlerTestCase(ModuleStoreTestCase):
             CourseDiscussionSettings.objects.get(course_id=course_key)
 
         # create course
+        request_cache.clear_cache(name=None)
         course = CourseFactory(emit_signals=True, **course_key_args)
         self.assertEqual(course.id, course_key)
         self._assert_discussion_id_map(course_key, {})
